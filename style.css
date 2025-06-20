@@ -1,0 +1,1392 @@
+/* Genel Stiller */
+:root {
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --card-bg: white;
+    --heading-color: #2c3e50;
+    --secondary-heading: #34495e;
+    --border-color: #ddd;
+    --hover-bg: #e9ecef;
+    --button-bg: #43b581;
+    --button-hover: #37996b;
+    --underweight-color: #2e86ab;
+    --normal-color: #43b581;
+    --overweight-color: #f4b942;
+    --obese-color: #e74c3c;
+}
+
+[data-theme="dark"] {
+    --bg-color: #424242;
+    --text-color: #ffffff;
+    --card-bg: #525252;
+    --heading-color: #ffffff;
+    --secondary-heading: #e0e0e0;
+    --border-color: #616161;
+    --hover-bg: #616161;
+    --link-color: #90caf9;
+    --button-bg: #43b581;
+    --button-hover: #37996b;
+    --input-bg: #616161;
+    --input-text: #ffffff;
+    --input-placeholder: #bdbdbd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: var(--heading-color);
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: var(--secondary-heading);
+    margin: 15px 0;
+    font-size: 1.8em;
+}
+
+/* Ana Sayfa Butonları */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--button-bg);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+/* İdeal Kilo Hesaplama Sayfası */
+form {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1.1em;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+#sonuc {
+    text-align: center;
+    margin: 20px;
+    padding: 15px;
+    font-size: 1.2em;
+    background: #e8f4f8;
+    border-radius: 5px;
+}
+
+/* Sağlıklı Tüyolar Sayfası */
+.tip-section {
+    background: var(--card-bg);
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.tip-section ul {
+    list-style-position: inside;
+    margin: 15px 0;
+}
+
+.tip-section li {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+/* Spor Planları Sayfası */
+.workout-section {
+    background: var(--card-bg);
+    margin: 25px 0;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.workout-plan {
+    margin: 15px 0;
+}
+
+.workout-plan h3 {
+    color: #e74c3c;
+    margin: 10px 0;
+}
+
+.workout-plan ul {
+    list-style-position: inside;
+    margin: 15px 0;
+}
+
+.workout-plan li {
+    margin: 8px 0;
+}
+
+.tips {
+    background: #f9e4b7;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.back-button {
+    display: block;
+    margin: 30px auto;
+    background-color: #2ecc71;
+}
+
+.back-button:hover {
+    background-color: #27ae60;
+}
+
+/* Sağlıklı Tüyolar Sayfası - Yeni Stiller */
+.content-with-links {
+    padding: 10px 0;
+}
+
+.content-with-links h3 {
+    color: #2c3e50;
+    margin: 20px 0 15px 0;
+    font-size: 1.4em;
+}
+
+.content-with-links ul {
+    list-style: none;
+}
+
+.content-with-links li {
+    margin: 20px 0;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.content-with-links li:hover {
+    background: var(--hover-bg);
+    transform: translateX(5px);
+}
+
+.content-with-links strong {
+    color: #e74c3c;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.content-with-links p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.content-with-links a {
+    color: #3498db;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.content-with-links a:hover {
+    color: #2980b9;
+    border-bottom-color: #2980b9;
+}
+
+/* Spor Planları Sayfası - Yeni Stiller */
+.workout-planner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.planner-section {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.planner-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Süre ve Seviye Seçici */
+.duration-selector,
+.level-selector {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.duration-btn,
+.level-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 10px;
+    border: 2px solid #3498db;
+    background: white;
+    color: #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.duration-btn:hover,
+.level-btn:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.duration-btn.selected,
+.level-btn.selected {
+    background: #3498db;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Egzersiz Seçici */
+.exercise-selector {
+    display: grid;
+    gap: 20px;
+}
+
+.exercise-category {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.exercise-category h3 {
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.exercise-list {
+    display: grid;
+    gap: 10px;
+}
+
+.exercise-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.exercise-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.exercise-item input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+.exercise-item label {
+    cursor: pointer;
+    flex: 1;
+}
+
+/* Seçilen Egzersizler */
+.selected-exercises {
+    margin: 20px 0;
+}
+
+.selected-exercise-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.selected-exercise-item button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.selected-exercise-item button:hover {
+    background: #c0392b;
+}
+
+/* Egzersiz Detayları */
+.exercise-details {
+    margin-top: 30px;
+}
+
+.exercise-details.hidden {
+    display: none;
+}
+
+.exercise-detail {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.exercise-detail h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.exercise-media {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.exercise-media img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.detail-btn {
+    width: 100%;
+    padding: 15px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.detail-btn:hover {
+    background: #27ae60;
+}
+
+.detail-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.info-text {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .buttons {
+        padding: 0 10px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+
+    .workout-section, .tip-section {
+        padding: 15px;
+    }
+
+    .workout-planner {
+        padding: 10px;
+    }
+
+    .duration-selector,
+    .level-selector {
+        flex-direction: column;
+    }
+
+    .duration-btn,
+    .level-btn {
+        width: 100%;
+    }
+
+    .exercise-detail {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 768px) {
+    .buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .buttons button {
+        flex: 1;
+        min-width: 250px;
+    }
+}
+
+/* Su Tüketimi Hesaplayıcı Sayfası */
+.calculator-section {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.result-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #e0e0e0;
+}
+
+.water-info {
+    text-align: center;
+}
+
+.water-info.hidden {
+    display: none;
+}
+
+.water-amount {
+    font-size: 3em;
+    color: #3498db;
+    margin: 20px 0;
+}
+
+.water-amount .unit {
+    font-size: 0.5em;
+    color: #7f8c8d;
+}
+
+.water-visual {
+    margin: 20px 0;
+}
+
+.bottle {
+    font-size: 2em;
+    margin: 0 5px;
+}
+
+.tips {
+    background: #f7f9fc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.tips h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tips li {
+    margin: 10px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Timer Bölümü */
+.timer-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.timer-section.hidden {
+    display: none;
+}
+
+.timer-display {
+    font-size: 4em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 20px 0;
+    font-family: monospace;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.timer-btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.timer-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#startTimer {
+    background: #2ecc71;
+    color: white;
+}
+
+#startTimer:hover:not(:disabled) {
+    background: #27ae60;
+}
+
+#pauseTimer {
+    background: #f1c40f;
+    color: white;
+}
+
+#pauseTimer:hover:not(:disabled) {
+    background: #f39c12;
+}
+
+#resetTimer {
+    background: #e74c3c;
+    color: white;
+}
+
+#resetTimer:hover:not(:disabled) {
+    background: #c0392b;
+}
+
+#nextExercise {
+    background: #3498db;
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#nextExercise:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.current-exercise {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.current-exercise h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.current-exercise p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+#currentExerciseName {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+#currentExerciseTime {
+    color: #7f8c8d;
+}
+
+/* İdeal Kilo Hesaplayıcı Sayfası - Özel Stiller */
+.calculate-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.calculate-btn:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.result-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+}
+
+.result-section.hidden {
+    display: none;
+}
+
+.bmi-display {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#bmiValue {
+    font-size: 4em;
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+}
+
+.bmi-label {
+    font-size: 1.5em;
+    color: #7f8c8d;
+    margin-left: 10px;
+}
+
+.bmi-category {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#bmiComment {
+    font-size: 1.3em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.bmi-scale {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.scale-item {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.scale-item span {
+    display: block;
+    font-size: 0.9em;
+    margin: 2px 0;
+}
+
+.scale-item.underweight {
+    background: #e8f4f8;
+    color: #3498db;
+}
+
+.scale-item.normal {
+    background: #e8f8f5;
+    color: #27ae60;
+}
+
+.scale-item.overweight {
+    background: #fef9e7;
+    color: #f39c12;
+}
+
+.scale-item.obese {
+    background: #fdf2f2;
+    color: #e74c3c;
+}
+
+.scale-item.active {
+    transform: scale(1.05);
+    border-color: #2c3e50;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.recommendations {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.recommendations h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.recommendations ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendations li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ecf0f1;
+    position: relative;
+    padding-left: 25px;
+}
+
+.recommendations li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.recommendations li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .bmi-scale {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .scale-item {
+        padding: 8px;
+    }
+    
+    #bmiValue {
+        font-size: 3em;
+    }
+    
+    .bmi-label {
+        font-size: 1.2em;
+    }
+}
+
+/* Copyright Footer */
+.copyright-footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .copyright-footer {
+        font-size: 0.8em;
+        padding: 15px;
+    }
+}
+
+/* Tema Değiştirici */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.theme-toggle span {
+    font-size: 1.2em;
+}
+
+/* Dark tema için özel düzenlemeler */
+[data-theme="dark"] button {
+    background-color: var(--button-bg);
+    color: white;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: var(--button-hover);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] select {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] input::placeholder {
+    color: var(--input-placeholder);
+}
+
+[data-theme="dark"] .content-with-links a {
+    color: var(--link-color);
+}
+
+[data-theme="dark"] .content-with-links strong {
+    color: #ff9800;
+}
+
+[data-theme="dark"] .exercise-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .exercise-item label {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .tips {
+    background-color: #4a4a4a;
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .timer-display {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .current-exercise {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] #bmiValue,
+[data-theme="dark"] .bmi-label,
+[data-theme="dark"] #bmiComment {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .water-amount {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .copyright-footer {
+    color: #bdbdbd;
+}
+
+/* Tema değiştirici butonunu güncelle */
+[data-theme="dark"] .theme-toggle {
+    background-color: #616161;
+    border-color: #757575;
+    color: white;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: #757575;
+}
+
+[data-theme="dark"] .workout-plan h3,
+[data-theme="dark"] .content-with-links h3,
+[data-theme="dark"] .exercise-category h3,
+[data-theme="dark"] .exercise-detail h3,
+[data-theme="dark"] .planner-section h2,
+[data-theme="dark"] .recommendations h3 {
+    color: #ffeb3b;
+}
+
+[data-theme="dark"] .recommendations li:before {
+    color: #4caf50;
+}
+
+[data-theme="dark"] #currentExerciseName {
+    color: #ff9800;
+}
+
+[data-theme="dark"] #currentExerciseTime,
+[data-theme="dark"] .bmi-label {
+    color: #bdbdbd;
+}
+
+[data-theme="dark"] .scale-item.underweight {
+    color: #90caf9;
+}
+[data-theme="dark"] .scale-item.normal {
+    color: #81c784;
+}
+[data-theme="dark"] .scale-item.overweight {
+    color: #ffd54f;
+}
+[data-theme="dark"] .scale-item.obese {
+    color: #ff8a65;
+}
+
+/* Modern ana sayfa arka planı */
+.modern-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #e0f7fa 0%, #fffde4 100%);
+    min-height: 100vh;
+}
+[data-theme="dark"] .modern-bg {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+
+.home-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+    padding: 40px 32px 24px 32px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    max-width: 480px;
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+.logo-area svg {
+    box-shadow: 0 4px 16px rgba(76,175,80,0.10);
+    border-radius: 50%;
+}
+.welcome-text {
+    color: var(--secondary-heading);
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+[data-theme="dark"] .welcome-text {
+    color: #e0e0e0;
+}
+
+.home-card .buttons {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(44,62,80,0.06);
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+.home-card .buttons button {
+    font-size: 1.15em;
+    padding: 16px 0;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.minimal-footer {
+    text-align: center;
+    color: #bdbdbd;
+    font-size: 0.95em;
+    margin-top: 16px;
+    margin-bottom: 0;
+    background: none;
+    box-shadow: none;
+    padding: 12px 0 0 0;
+}
+[data-theme="dark"] .minimal-footer {
+    color: #757575;
+}
+
+@media (max-width: 600px) {
+    .home-card {
+        padding: 18px 4vw 12px 4vw;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .logo-area {
+        margin-bottom: 18px;
+    }
+    .home-card .buttons {
+        padding: 10px 0;
+        gap: 12px;
+    }
+}
+
+.btn-icon {
+    font-size: 1.3em;
+    margin-right: 0.6em;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 4vw 2vw;
+        max-width: 100vw;
+    }
+    .home-card {
+        padding: 10px 2vw 8px 2vw;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        max-width: 100vw;
+    }
+    .logo-area {
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+    .logo-area svg {
+        width: 48px;
+        height: 48px;
+    }
+    h1 {
+        font-size: 1.3em;
+        margin: 12px 0;
+    }
+    h2 {
+        font-size: 1.1em;
+        margin: 10px 0;
+    }
+    .buttons, .home-card .buttons {
+        gap: 8px;
+        padding: 4px 0;
+    }
+    .home-card .buttons button, .buttons button, .calculate-btn, .detail-btn, .timer-btn, .back-button {
+        font-size: 1em;
+        padding: 12px 0;
+        border-radius: 8px;
+    }
+    .calculator-section, .workout-planner, .tip-section, .result-section, .planner-section {
+        padding: 10px 4vw;
+        margin: 10px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    }
+    .content-with-links li, .tips li, .recommendations, .selected-exercise-item, .exercise-item, .exercise-detail {
+        padding: 10px 4vw;
+        font-size: 0.98em;
+    }
+    .bmi-scale {
+        flex-direction: column;
+        gap: 4px;
+    }
+    .scale-item {
+        padding: 6px;
+        font-size: 0.95em;
+    }
+    .copyright-footer, .minimal-footer {
+        font-size: 0.8em;
+        padding: 8px 0 0 0;
+    }
+    .form-group label {
+        font-size: 1em;
+    }
+    .form-group input, .form-group select {
+        font-size: 1em;
+        padding: 10px;
+        border-radius: 6px;
+    }
+    .water-amount {
+        font-size: 2em;
+    }
+    .theme-toggle {
+        top: 8px;
+        right: 8px;
+        padding: 6px 12px;
+        font-size: 0.95em;
+    }
+}
+
+[data-theme="dark"] .result-section {
+    background: #23272e;
+    border-left: 5px solid #42a5f5;
+    color: #e3f2fd;
+}
+[data-theme="dark"] .bmi-scale {
+    background: #23272e;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+}
+[data-theme="dark"] .scale-item.underweight {
+    background: #263238;
+    color: #4fc3f7;
+}
+[data-theme="dark"] .scale-item.normal {
+    background: #1b5e20;
+    color: #b9f6ca;
+}
+[data-theme="dark"] .scale-item.overweight {
+    background: #ff8f00;
+    color: #fffde7;
+}
+[data-theme="dark"] .scale-item.obese {
+    background: #b71c1c;
+    color: #ffcccb;
+}
+[data-theme="dark"] .scale-item.active {
+    border-color: #42a5f5;
+    box-shadow: 0 4px 12px rgba(66,165,245,0.15);
+}
+[data-theme="dark"] .recommendations {
+    background: #263238;
+    color: #e3f2fd;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+}
+[data-theme="dark"] .recommendations h3 {
+    color: #90caf9;
+}
+[data-theme="dark"] .recommendations li {
+    border-bottom: 1px solid #37474f;
+}
+[data-theme="dark"] .recommendations li:before {
+    color: #66bb6a;
+}
+[data-theme="dark"] .bmi-category {
+    color: #e3f2fd;
+}
+[data-theme="dark"] .bmi-display {
+    color: #e3f2fd;
+}
+[data-theme="dark"] #bmiValue {
+    color: #90caf9;
+}
+[data-theme="dark"] #bmiComment {
+    color: #ffd54f;
+}
+
+/* --- PROFESYONEL RESPONSIVE & ANİMASYON --- */
+@media (max-width: 540px) {
+  .container, .calculator-section, .workout-planner, .tip-section, .result-section, .planner-section {
+    padding: 2vw 1vw;
+  }
+  h1 { font-size: 1.1em; }
+  h2 { font-size: 1em; }
+  .home-card, .calculator-section, .workout-planner, .tip-section, .result-section, .planner-section {
+    border-radius: 8px;
+  }
+  .logo-area svg { width: 40px; height: 40px; }
+}
+@media (max-width: 375px) {
+  .container, .calculator-section, .workout-planner, .tip-section, .result-section, .planner-section {
+    padding: 1vw 0.5vw;
+  }
+  h1 { font-size: 1em; }
+  h2 { font-size: 0.95em; }
+  .home-card, .calculator-section, .workout-planner, .tip-section, .result-section, .planner-section {
+    border-radius: 6px;
+  }
+}
+
+/* Micro-interaction ve focus stilleri */
+button, .detail-btn, .calculate-btn, .timer-btn, .back-button, .duration-btn, .level-btn {
+  outline: none;
+  box-shadow: 0 2px 8px rgba(67,181,129,0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+button:focus, .detail-btn:focus, .calculate-btn:focus, .timer-btn:focus, .back-button:focus, .duration-btn:focus, .level-btn:focus {
+  box-shadow: 0 0 0 3px #b2f7ef, 0 2px 8px rgba(67,181,129,0.12);
+  outline: none;
+}
+button:active, .detail-btn:active, .calculate-btn:active, .timer-btn:active, .back-button:active, .duration-btn:active, .level-btn:active {
+  transform: scale(0.97);
+}
+
+.home-card, .calculator-section, .workout-planner, .tip-section, .result-section, .planner-section {
+  box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+  border: 1.5px solid #e0e0e0;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+[data-theme="dark"] .home-card, [data-theme="dark"] .calculator-section, [data-theme="dark"] .workout-planner, [data-theme="dark"] .tip-section, [data-theme="dark"] .result-section, [data-theme="dark"] .planner-section {
+  box-shadow: 0 4px 24px rgba(33,150,243,0.10);
+  border: 1.5px solid #333a;
+}
+
+input, select {
+  border: 1.5px solid #bdbdbd;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+input:focus, select:focus {
+  border: 1.5px solid #43b581;
+  box-shadow: 0 0 0 2px #b2f7ef;
+  outline: none;
+}
+[data-theme="dark"] input, [data-theme="dark"] select {
+  border: 1.5px solid #616161;
+}
+[data-theme="dark"] input:focus, [data-theme="dark"] select:focus {
+  border: 1.5px solid #43b581;
+  box-shadow: 0 0 0 2px #43b58144;
+}
+
+/* Tipografi güçlendirme */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+body, p, li, label, input, select, button {
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Renk körlüğü dostu ve kontrast artırımı */
+:root {
+  --underweight-color: #2e86ab;
+  --normal-color: #43b581;
+  --overweight-color: #f4b942;
+  --obese-color: #e74c3c;
+}
+.scale-item.underweight { color: var(--underweight-color); }
+.scale-item.normal { color: var(--normal-color); }
+.scale-item.overweight { color: var(--overweight-color); }
+.scale-item.obese { color: var(--obese-color); }
+[data-theme="dark"] .scale-item.underweight { color: #4fc3f7; }
+[data-theme="dark"] .scale-item.normal { color: #b9f6ca; }
+[data-theme="dark"] .scale-item.overweight { color: #ffe082; }
+[data-theme="dark"] .scale-item.obese { color: #ffcccb; }
+
+/* SVG ve ikon animasyonları */
+.logo-area svg, .btn-icon {
+  transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+}
+.logo-area svg:hover, .btn-icon:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 2px 12px #43b58133;
+}
+
+.dev-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 32px 0 0 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  max-width: 100%;
+}
+.dev-site-link {
+  color: #43b581;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08em;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  transition: color 0.18s, text-decoration 0.18s;
+  text-align: center;
+  display: inline-block;
+}
+.dev-site-link:hover, .dev-site-link:focus {
+  color: #37996b;
+  text-decoration: underline;
+  outline: none;
+}
+[data-theme="dark"] .dev-site-link {
+  color: #b9f6ca;
+}
+[data-theme="dark"] .dev-site-link:hover, [data-theme="dark"] .dev-site-link:focus {
+  color: #43b581;
+}
+@media (max-width: 600px) {
+  .dev-info {
+    margin: 18px 0 0 0;
+  }
+  .dev-site-link {
+    font-size: 1em;
+    padding: 4px 6px;
+  }
+}

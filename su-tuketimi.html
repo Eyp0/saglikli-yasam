@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Günlük Su Tüketimi Hesaplayıcı</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        Tema <span>☀️</span>
+    </button>
+
+    <div class="container">
+        <h1>Günlük Su Tüketimi Hesaplayıcı</h1>
+        
+        <div class="calculator-section">
+            <form id="waterForm" class="calculator-form">
+                <div class="form-group">
+                    <label for="weight">Kilonuz (kg):</label>
+                    <input type="number" id="weight" required min="30" max="200" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="activity">Aktivite Seviyeniz:</label>
+                    <select id="activity" required>
+                        <option value="1.2">Hareketsiz (Masa başı çalışan)</option>
+                        <option value="1.375">Hafif Aktif (Haftada 1-3 gün egzersiz)</option>
+                        <option value="1.55">Orta Aktif (Haftada 3-5 gün egzersiz)</option>
+                        <option value="1.725">Çok Aktif (Haftada 6-7 gün egzersiz)</option>
+                        <option value="1.9">Ekstra Aktif (Ağır egzersiz/fiziksel iş)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="climate">İklim/Hava Durumu:</label>
+                    <select id="climate" required>
+                        <option value="1">Normal</option>
+                        <option value="1.2">Sıcak/Nemli</option>
+                        <option value="0.9">Soğuk</option>
+                    </select>
+                </div>
+
+                <button type="submit">Hesapla</button>
+            </form>
+
+            <div id="result" class="result-section">
+                <div class="water-info hidden">
+                    <h2>Günlük Su İhtiyacınız</h2>
+                    <div class="water-amount">
+                        <span id="waterAmount">0</span>
+                        <span class="unit">litre</span>
+                    </div>
+                    <div class="water-visual">
+                        <div id="waterBottles"></div>
+                    </div>
+                    <div class="tips">
+                        <h3>Öneriler:</h3>
+                        <ul id="waterTips">
+                            <!-- JavaScript ile doldurulacak -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="back-button" onclick="location.href='../'">Ana Sayfaya Dön</button>
+
+        <div class="copyright-footer">
+            © 2025 Sağlıklı Yaşam. Tüm hakları saklıdır.
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('waterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Değerleri al
+            const weight = parseFloat(document.getElementById('weight').value);
+            const activity = parseFloat(document.getElementById('activity').value);
+            const climate = parseFloat(document.getElementById('climate').value);
+            
+            // Temel su ihtiyacı hesaplama (kg başına 0.033 litre)
+            let waterNeeded = weight * 0.033;
+            
+            // Aktivite ve iklim faktörlerini uygula
+            waterNeeded = waterNeeded * activity * climate;
+            
+            // Sonucu 1 ondalık basamağa yuvarla
+            waterNeeded = Math.round(waterNeeded * 10) / 10;
+            
+            // Sonucu göster
+            document.getElementById('waterAmount').textContent = waterNeeded;
+            document.querySelector('.water-info').classList.remove('hidden');
+            
+            // Su şişesi görsellerini oluştur
+            const bottlesContainer = document.getElementById('waterBottles');
+            bottlesContainer.innerHTML = '';
+            const fullBottles = Math.floor(waterNeeded / 0.5); // Her şişe 500ml
+            const remainingWater = waterNeeded % 0.5;
+            
+            for (let i = 0; i < fullBottles; i++) {
+                bottlesContainer.innerHTML += '<span class="bottle full">🌊</span>';
+            }
+            if (remainingWater > 0) {
+                bottlesContainer.innerHTML += '<span class="bottle partial">💧</span>';
+            }
+
+            // Önerileri güncelle
+            const tips = [
+                `Günde ${waterNeeded} litre su için (yaklaşık ${Math.ceil(waterNeeded * 4)} bardak)`,
+                'Her sabah 1 bardak su ile güne başlayın',
+                'Öğünlerden 30 dakika önce 1 bardak su için',
+                'Yanınızda her zaman su şişesi bulundurun',
+                'Her saat başı en az 1 bardak su içmeyi hedefleyin',
+                'Akıllı telefon uygulamaları ile su takibi yapın'
+            ];
+            
+            const tipsList = document.getElementById('waterTips');
+            tipsList.innerHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+        });
+    </script>
+
+
+</body>
+</html> 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>İdeal Kilo Hesaplama</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    Tema <span>☀️</span>
+  </button>
+
+  <div class="container">
+    <h1>İdeal Kilo Hesaplama</h1>
+    
+    <div class="calculator-section">
+      <form id="kiloForm" class="calculator-form">
+        <div class="form-group">
+          <label for="boy">Boyunuz (cm):</label>
+          <input type="number" id="boy" placeholder="Örn: 175" required min="100" max="250">
+        </div>
+        
+        <div class="form-group">
+          <label for="kilo">Kilonuz (kg):</label>
+          <input type="number" id="kilo" placeholder="Örn: 70" required min="30" max="300" step="0.1">
+        </div>
+        
+        <button type="submit" class="calculate-btn">Hesapla</button>
+      </form>
+
+      <div id="result" class="result-section hidden">
+        <h2>Sonuç</h2>
+        <div class="bmi-display">
+          <span id="bmiValue">0</span>
+          <span class="bmi-label">BMI</span>
+        </div>
+        <div class="bmi-category">
+          <p id="bmiComment">-</p>
+          <div class="bmi-scale">
+            <div class="scale-item underweight">
+              <span>Zayıf</span>
+              <span>&lt; 18.5</span>
+            </div>
+            <div class="scale-item normal">
+              <span>Normal</span>
+              <span>18.5 - 24.9</span>
+            </div>
+            <div class="scale-item overweight">
+              <span>Fazla Kilolu</span>
+              <span>25 - 29.9</span>
+            </div>
+            <div class="scale-item obese">
+              <span>Obez</span>
+              <span>&gt; 30</span>
+            </div>
+          </div>
+        </div>
+        <div class="recommendations">
+          <h3>Öneriler:</h3>
+          <ul id="recommendationsList">
+            <!-- JavaScript ile doldurulacak -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <button class="back-button" onclick="location.href='../'">Ana Sayfaya Dön</button>
+
+    <div class="copyright-footer">
+      © 2025 Sağlıklı Yaşam. Tüm hakları saklıdır.
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+
+  <script>
+    document.getElementById("kiloForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      
+      const boy = parseFloat(document.getElementById("boy").value);
+      const kilo = parseFloat(document.getElementById("kilo").value);
+      
+      if (!boy || !kilo) {
+        alert("Lütfen boy ve kilo değerlerini girin!");
+        return;
+      }
+      
+      const boyMeter = boy / 100;
+      const bmi = (kilo / (boyMeter * boyMeter)).toFixed(1);
+      
+      // BMI değerini göster
+      document.getElementById("bmiValue").textContent = bmi;
+      
+      // BMI kategorisini belirle
+      let category, comment, recommendations;
+      
+      if (bmi < 18.5) {
+        category = "underweight";
+        comment = "Zayıf kategorisindesiniz.";
+        recommendations = [
+          "Kalori alımınızı artırın",
+          "Protein açısından zengin besinler tüketin",
+          "Düzenli egzersiz yapın (kas kütlesi için)",
+          "Bir diyetisyenle görüşün"
+        ];
+      } else if (bmi < 25) {
+        category = "normal";
+        comment = "İdeal kilodasınız!";
+        recommendations = [
+          "Mevcut kilonuzu koruyun",
+          "Düzenli egzersiz yapmaya devam edin",
+          "Sağlıklı beslenme alışkanlıklarınızı sürdürün",
+          "Düzenli sağlık kontrollerinizi yaptırın"
+        ];
+      } else if (bmi < 30) {
+        category = "overweight";
+        comment = "Fazla kilolu kategorisindesiniz.";
+        recommendations = [
+          "Kalori alımınızı azaltın",
+          "Düzenli kardiyo egzersizleri yapın",
+          "Porsiyon kontrolüne dikkat edin",
+          "Bir diyetisyenle görüşün"
+        ];
+      } else {
+        category = "obese";
+        comment = "Obezite kategorisindesiniz.";
+        recommendations = [
+          "Mutlaka bir doktorla görüşün",
+          "Düzenli egzersiz programı başlatın",
+          "Beslenme alışkanlıklarınızı değiştirin",
+          "Profesyonel destek alın"
+        ];
+      }
+      
+      // Yorumu göster
+      document.getElementById("bmiComment").textContent = comment;
+      
+      // Önerileri göster
+      const recommendationsList = document.getElementById("recommendationsList");
+      recommendationsList.innerHTML = recommendations.map(rec => `<li>${rec}</li>`).join('');
+      
+      // BMI skalasında aktif kategoriyi işaretle
+      document.querySelectorAll('.scale-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      document.querySelector(`.scale-item.${category}`).classList.add('active');
+      
+      // Sonucu göster
+      document.getElementById("result").classList.remove('hidden');
+      
+      // Sayfayı sonuca kaydır
+      document.getElementById("result").scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
+    
