@@ -1092,17 +1092,39 @@ input {
 }
 
 @media (max-width: 600px) {
+    .container {
+        width: 98vw;
+        max-width: none;
+        padding: 0;
+        margin: 0 auto;
+    }
     .home-card {
-        padding: 18px 4vw 12px 4vw;
-        margin-top: 16px;
-        margin-bottom: 16px;
+        width: 98vw;
+        max-width: none;
+        padding: 8px 2vw 8px 2vw;
+        margin: 6px 0;
+        border-radius: 10px;
+        box-sizing: border-box;
     }
-    .logo-area {
-        margin-bottom: 18px;
+    .logo-area h1 {
+        font-size: 1.25em;
     }
-    .home-card .buttons {
-        padding: 10px 0;
-        gap: 12px;
+    .welcome-text {
+        font-size: 1.08em;
+    }
+    .home-card .buttons button {
+        font-size: 1.08em;
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-area h1 {
+        font-size: 0.98em;
+    }
+    .home-card .buttons button {
+        font-size: 0.95em;
+        padding: 11px 0;
     }
 }
 
